@@ -5,7 +5,7 @@ await build({
     outfile: "dist/app.cjs",
     platform: "node",
     format: "cjs",
-    target: "node22",
+    target: "node24",
     bundle: true,
     sourcemap: true,
     legalComments: "none",

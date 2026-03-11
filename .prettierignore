@@ -15,3 +15,7 @@ coverage
 apps/**/.expo
 apps/**/ios
 apps/**/android
+.tanstack
+.output
+.vinxi
+.nitro

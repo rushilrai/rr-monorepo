@@ -17,3 +17,8 @@ apps/**/android
 *.pem
 *.tsbuildinfo
 next-env.d.ts
+.tanstack
+.output
+.vinxi
+.nitro
+.wrangler

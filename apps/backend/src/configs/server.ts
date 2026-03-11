@@ -5,6 +5,7 @@ import rateLimit from "@fastify/rate-limit";
 import Fastify from "fastify";
 
 import { buildHealthRoutes } from "../modules/health/router";
+import { buildSampleRoutes } from "../modules/sample/router";
 
 export async function setupServer() {
     try {
@@ -30,6 +31,7 @@ export async function setupServer() {
 
         await app.register((instance) => {
             buildHealthRoutes(instance);
+            buildSampleRoutes(instance);
         }, { prefix: "/api" });
 
         await app.ready();

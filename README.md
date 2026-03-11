@@ -1,23 +1,44 @@
 # rr-monorepo
 
-A highly opinionated TypeScript monorepo boilerplate for building full‑stack apps: static site, backend API, and webapp.
+A highly opinionated TypeScript monorepo boilerplate for building full-stack apps.
 
 Note: This setup is intentionally opinionated and will remain a WIP as I learn and adopt better patterns over time.
+
+## Stack
+
+- **Runtime**: Node.js >= 24, pnpm workspaces
+- **Build**: Turbo for task orchestration
+- **Linting**: oxlint (no ESLint)
+- **Formatting**: Prettier with composable base config
+- **Language**: TypeScript 5, strict mode
 
 ## Apps
 
 ### apps/static
-- Purpose: Static website (marketing pages, docs, landing pages).
-- Stack: Astro 5, Tailwind CSS 4 (via Vite plugin), DaisyUI, Lucide icons.
+Static website (marketing pages, docs, landing pages).
+- Astro 6, Tailwind CSS 4, DaisyUI, Lucide icons
 
 ### apps/backend
-- Purpose: Backend service that connects to the database and exposes APIs.
-- Stack: Fastify 5, PostgreSQL with drizzle-orm, drizzle-kit for migrations, Zod for validation.
+Backend service with database and REST APIs.
+- Fastify 5, PostgreSQL, Drizzle ORM, Zod validation
+- Module pattern: schema → service → handler → router
 
 ### apps/webapp
-- Purpose: Full web application (dashboards, SaaS, marketplaces, etc.).
-- Stack: Next.js 16, React 19, Tailwind CSS 4, Radix UI, Lucide icons.
+Full web application (dashboards, SaaS, etc.).
+- TanStack Start, React 19, Vite, Tailwind CSS 4, shadcn/ui (base-nova with Base UI)
+- TanStack Router (file-based), TanStack Query, TanStack Form
+- Frontend module pattern: service → queries → components
+
+### apps/fullstack-convex
+Full-stack app with Convex serverless backend.
+- TanStack Start, React 19, Vite, Convex, shadcn/ui (base-nova with Base UI)
+- Convex module pattern: schema → helpers → queries → mutations
+
+## Packages
+
+### packages/shared/dto
+Shared Zod schemas (DTOs) consumed by backend and webapp.
 
 ---
 
-If you spot something off or have a better pattern in mind, it’s probably on the roadmap—or about to be.
+If you spot something off or have a better pattern in mind, it's probably on the roadmap—or about to be.
